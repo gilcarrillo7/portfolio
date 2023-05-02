@@ -1,0 +1,27 @@
+{
+  "name": "gil-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "gil-portfolio",
+  "author": "gilbertotv",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "gatsby": "^5.9.0",
+    "gatsby-plugin-google-analytics": "^5.9.0",
+    "gatsby-plugin-react-helmet": "^6.9.0",
+    "gatsby-plugin-sass": "^6.9.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "sass": "^1.62.1"
+  }
+}
