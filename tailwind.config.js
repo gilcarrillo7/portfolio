@@ -19,6 +19,7 @@ module.exports = {
 			colors: {
 				maindark: "#000000",
 				secdark: "#FFFFFF",
+				thirddark: "#FFCC00",
 				mainlight: "#FFFFFF",
 				seclight: "#000000",
 			},

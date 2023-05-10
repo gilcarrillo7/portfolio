@@ -8,6 +8,9 @@ const Github = ({ darkMode }) => {
 			height="24"
 			viewBox="0 0 24 24"
 			className="hover:scale-125 cursor-pointer transition duration-150 ease-linear "
+			onClick={() =>
+				window.open("https://github.com/gilcarrillo7?tab=repositories")
+			}
 		>
 			<path
 				fill={`${darkMode ? "#FFF" : "#000"}`}

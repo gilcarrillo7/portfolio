@@ -8,7 +8,7 @@ interface IProps {
 }
 
 export const SEO = ({
-	title = "Gil Carrillo - Front End Developer",
+	title = "Gil Carrillo | Front End Developer",
 	description = "Helllo my name is Gilberto Carrillo. I am a Front End Developer with experience in Javascript, React, Angular.",
 	image = "",
 	url = "",

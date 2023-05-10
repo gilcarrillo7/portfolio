@@ -8,6 +8,7 @@ const Linkedin = ({ darkMode }) => {
 			height="24"
 			viewBox="0 0 24 24"
 			className="hover:scale-125 cursor-pointer transition duration-150 ease-linear "
+			onClick={() => window.open("https://www.linkedin.com/in/gilcarrillo/")}
 		>
 			<path
 				fill={`${darkMode ? "#FFF" : "#000"}`}

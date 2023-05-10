@@ -1,4 +1,5 @@
 import React, { useContext, useState, useRef, useEffect } from "react";
+import { scroller } from "react-scroll";
 import Logo from "./Logo";
 import { AppContext } from "../../context/AppContext";
 import {
@@ -15,9 +16,14 @@ const Divisor = ({ darkMode }) => (
 	></div>
 );
 
-const NavItem = ({ text, darkMode }) => {
+const NavItem = ({ text, darkMode, onClick }) => {
 	return (
-		<li className={`${darkMode ? "text-secdark" : "text-seclight"}`}>
+		<li
+			className={`cursor-pointer ${
+				darkMode ? "text-secdark" : "text-seclight"
+			}`}
+			onClick={onClick}
+		>
 			<Trans>{text}</Trans>
 		</li>
 	);
@@ -30,6 +36,14 @@ const Header = () => {
 	const menu = useRef<HTMLDivElement>(null);
 
 	const [open, setOpen] = useState(false);
+
+	const hanldeScroll = (index) => {
+		scroller.scrollTo(`element${index}`, {
+			duration: 200,
+			delay: 20,
+			smooth: true,
+		});
+	};
 
 	const handleClickOutside = (e) => {
 		if (menu.current && !menu.current.contains(e.target)) {
@@ -45,7 +59,11 @@ const Header = () => {
 	}, []);
 
 	return (
-		<header className={`${darkMode ? "bg-maindark" : "bg-mainlight"}`}>
+		<header
+			className={`fixed w-full top-0 z-50 ${
+				darkMode ? "bg-maindark" : "bg-mainlight"
+			}`}
+		>
 			<nav
 				className={`container py-6 flex justify-between border-b border-maindark`}
 			>
@@ -54,8 +72,10 @@ const Header = () => {
 					<Hamburger open={open} setOpen={setOpen} />
 
 					<div
-						className={`fixed sm:absolute flex w-screen sm:w-[300px] top-[5.5rem] sm:top-16 right-0  border border-maindark text-2xl sm:text-xl transition-all duration-300 ease-in-out ${
-							darkMode ? "bg-maindark" : "bg-mainlight"
+						className={`fixed sm:absolute flex w-screen sm:w-[300px] top-[5.5rem] sm:top-16 right-0  border text-2xl sm:text-xl transition-all duration-300 ease-in-out ${
+							darkMode
+								? "bg-maindark border-mainlight"
+								: "bg-mainlight border-maindark"
 						} ${
 							open
 								? "h-screen sm:h-[300px] pt-20 sm:pt-6 p-4 sm:p-8"
@@ -68,9 +88,21 @@ const Header = () => {
 									open ? "" : "invisible"
 								}`}
 							>
-								<NavItem text={"About"} darkMode={darkMode} />
-								<NavItem text={"Work"} darkMode={darkMode} />
-								<NavItem text={"Contact"} darkMode={darkMode} />
+								<NavItem
+									text={"About"}
+									darkMode={darkMode}
+									onClick={() => hanldeScroll(2)}
+								/>
+								<NavItem
+									text={"Work"}
+									darkMode={darkMode}
+									onClick={() => hanldeScroll(3)}
+								/>
+								<NavItem
+									text={"Contact"}
+									darkMode={darkMode}
+									onClick={() => hanldeScroll(4)}
+								/>
 							</ul>
 							<Divisor darkMode={darkMode} />
 							<div className={`flex gap-6 sm:gap-4 ${open ? "" : "invisible"}`}>
