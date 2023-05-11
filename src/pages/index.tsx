@@ -1,4 +1,10 @@
-import React, { useContext, useState, useEffect, useCallback } from "react";
+import React, {
+	useContext,
+	useState,
+	useEffect,
+	useCallback,
+	useRef,
+} from "react";
 import { Element, scroller } from "react-scroll";
 import Layout from "./components/layout/Layout";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
@@ -12,17 +18,23 @@ import Helmet from "react-helmet";
 import Presentation from "./components/home/Presentation";
 import PageIcon from "./components/shared/PageIcon";
 import About from "./components/home/About";
+import Contact from "./components/home/Contact";
+import { useWindowSize } from "./hooks/useWindowSize";
+import Work from "./components/home/Work";
 
 const IndexPage = () => {
+	const { width: windowWidth } = useWindowSize();
+
 	const { darkMode } = useContext(AppContext);
 	const [active, setActive] = useState(1);
 
 	useEffect(() => {
-		scroller.scrollTo(`element${active}`, {
-			duration: 200,
-			delay: 20,
-			smooth: true,
-		});
+		if (windowWidth && windowWidth > 640)
+			scroller.scrollTo(`element${active}`, {
+				duration: 200,
+				delay: 20,
+				smooth: true,
+			});
 	}, [active]);
 
 	return (
@@ -33,9 +45,9 @@ const IndexPage = () => {
 				}}
 			/>
 			<ReactScrollWheelHandler
-				className="pointer-events-none sm:pointer-events-auto"
-				upHandler={(e) => setActive(active === 1 ? 1 : active - 1)}
-				downHandler={(e) => setActive(active === 4 ? 4 : active + 1)}
+				className=""
+				upHandler={() => setActive(active === 1 ? 1 : active - 1)}
+				downHandler={() => setActive(active === 4 ? 4 : active + 1)}
 			>
 				<Element name="element1">
 					<Presentation />
@@ -44,22 +56,10 @@ const IndexPage = () => {
 					<About />
 				</Element>
 				<Element name="element3">
-					<div
-						className={`w-screen h-screen flex items-center justify-center ${
-							darkMode ? "bg-maindark" : "bg-mailight"
-						}`}
-					>
-						<p className="text-white">ayos</p>
-					</div>
+					<Work />
 				</Element>
 				<Element name="element4">
-					<div
-						className={`w-screen h-screen flex items-center justify-center ${
-							darkMode ? "bg-maindark" : "bg-mailight"
-						}`}
-					>
-						<p className="text-white">bay</p>
-					</div>
+					<Contact />
 				</Element>
 			</ReactScrollWheelHandler>
 			<div className="hidden sm:flex fixed bottom-4 sm:bottom-8 right-4 sm:right-8 flex-col gap-3 items-center">
