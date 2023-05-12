@@ -11,15 +11,21 @@ import Textarea from "../Textarea";
 const Contact = () => {
 	const { darkMode } = useContext(AppContext);
 	const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
+	const { ref: refMail, inView: inViewMail } = useInView({
+		threshold: 0.3,
+	});
 
 	return (
 		<div
 			id="about"
-			className={`w-screen sm:h-screen flex items-center justify-center ${
+			className={`w-screen sm:h-screen relative flex flex-col items-center justify-center ${
 				darkMode ? "bg-maindark" : "bg-mailight"
 			}`}
 		>
-			<div ref={ref} className={`container flex justify-center mt-24 sm:mt-0`}>
+			<div
+				ref={ref}
+				className={`container flex justify-center mt-24 sm:mt-0 mb-6 sm:mb-0`}
+			>
 				<div
 					className={`flex w-full lg:w-3/4 flex-col items-center transition-all duration-1000 ease-in-out ${
 						inView ? "opacity-100" : "opacity-0"
@@ -59,7 +65,7 @@ const Contact = () => {
 								placeholder="Message"
 							/>
 						</div>
-						<div className="flex justify-center mt-12">
+						<div className="flex justify-center my-12">
 							<Button
 								darkMode={darkMode}
 								className={``}
@@ -71,6 +77,26 @@ const Contact = () => {
 						</div>
 					</form>
 				</div>
+			</div>
+			<div
+				ref={refMail}
+				className={`absolute bottom-0 left-0 w-full text-center py-2 font-thin ${
+					darkMode ? "text-mainlight" : "text-maindark"
+				}`}
+			>
+				<Trans>or send me a</Trans>{" "}
+				<a
+					href="mailto:gilcarrillo7@gmail.com"
+					className="relative inline-block"
+					target="_blank"
+				>
+					<Trans>mail</Trans>
+					<div
+						className={`border-b bottom-0 transition-all duration-1000 ease-in-out ${
+							darkMode ? "border-mainlight" : "border-maindark"
+						} ${inViewMail ? "w-full" : "w-0"}`}
+					></div>
+				</a>
 			</div>
 		</div>
 	);

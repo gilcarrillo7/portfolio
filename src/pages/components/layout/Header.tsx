@@ -9,6 +9,7 @@ import {
 } from "gatsby-plugin-react-i18next";
 import { Github, Linkedin, Light } from "../shared/icons";
 import Hamburger from "./Hamburger";
+import { useScroll } from "../../hooks/useScroll";
 
 const Divisor = ({ darkMode }) => (
 	<div
@@ -32,12 +33,16 @@ const NavItem = ({ text, darkMode, onClick }) => {
 const Header = () => {
 	const { darkMode, setDarkMode } = useContext(AppContext);
 	const { language, changeLanguage } = useI18next();
+	const scrollPosition = useScroll();
+
+	const scrolled = scrollPosition > 0;
 
 	const menu = useRef<HTMLDivElement>(null);
 
 	const [open, setOpen] = useState(false);
 
-	const hanldeScroll = (index) => {
+	const hanldeScroll = (index: number) => {
+		setOpen(false);
 		scroller.scrollTo(`element${index}`, {
 			duration: 200,
 			delay: 20,
@@ -60,16 +65,20 @@ const Header = () => {
 
 	return (
 		<header
-			className={`fixed w-full top-0 z-50 ${
-				darkMode ? "bg-maindark" : "bg-mainlight"
-			}`}
+			className={`fixed w-full top-0 z-50 transition-all duration-300 ease-in-out ${
+				open && darkMode ? "bg-maindark" : ""
+			} ${open && !darkMode ? "bg-mainlight" : ""}`}
 		>
 			<nav
-				className={`container py-6 flex justify-between border-b border-maindark`}
+				className={`container py-6 flex justify-between transition-all duration-300 ease-in-out ${
+					scrolled ? "" : "border-b"
+				} ${darkMode ? "border-mainlight" : "border-maindark"} ${
+					open ? "border-b" : ""
+				}`}
 			>
-				<Logo />
+				<Logo scrolled={scrolled} open={open} />
 				<div ref={menu} className="relative">
-					<Hamburger open={open} setOpen={setOpen} />
+					<Hamburger open={open} setOpen={setOpen} scrolled={scrolled} />
 
 					<div
 						className={`fixed sm:absolute flex w-screen sm:w-[300px] top-[5.5rem] sm:top-16 right-0  border text-2xl sm:text-xl transition-all duration-300 ease-in-out ${

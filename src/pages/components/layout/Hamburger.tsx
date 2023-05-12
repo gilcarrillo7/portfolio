@@ -4,14 +4,20 @@ import { AppContext } from "../../context/AppContext";
 const Hamburger = ({
 	open,
 	setOpen,
+	scrolled,
 }: {
 	open: boolean;
 	setOpen: (open: boolean) => void;
+	scrolled: boolean;
 }) => {
 	const { darkMode } = useContext(AppContext);
 	return (
 		<div
-			className={`flex flex-col gap-3 items-end cursor-pointer`}
+			className={`flex flex-col gap-3 items-end cursor-pointer transition-all duration-500 ease-in-out ${
+				!open && scrolled
+					? "scale-50 md:scale-100 translate-x-4 md:translate-x-0 -translate-y-6 md:translate-y-0"
+					: ""
+			}`}
 			onClick={() => setOpen(!open)}
 		>
 			<span

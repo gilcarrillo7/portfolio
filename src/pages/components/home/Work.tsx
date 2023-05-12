@@ -21,22 +21,23 @@ import Incuba from "../../../images/incuba.png";
 const Project = ({ img, darkMode, onClick, text }) => {
 	const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
 	return (
-		<div ref={ref} className="w-full text-center" onClick={onClick}>
+		<div ref={ref} className="w-full text-center">
 			<div
-				className={`group flex justify-center text-center relative overflow-hidden rounded-md cursor-pointer transition-all duration-1000 ease-in-out ${
+				className={`h-32 hover:h-60 group flex justify-center text-center relative overflow-hidden rounded-md cursor-pointer transition-all duration-1000 ease-in-out ${
 					inView ? "opacity-100" : "opacity-0 translate-y-28"
 				}`}
+				onClick={onClick}
 			>
 				<img
 					src={img}
 					alt={text}
-					className="w-full h-auto rounded-md object-cover ease-in-out duration-500 group-hover:rotate-6 group-hover:scale-125"
+					className="w-full h-auto rounded-md object-cover ease-in-out duration-500 group-hover:rotate-0 scale-75 group-hover:scale-100"
 				/>
 				<div className="absolute bg-black w-full h-full opacity-30 transition-opacity duration-500 group-hover:opacity-0" />
 			</div>
 			<Paragraph
 				darkMode={darkMode}
-				className={`text-lg md:text-xl mt-2 font-thin transition-all duration-1000 ease-in-out delay-700 ${
+				className={`text-lg md:text-xl mt-1 font-thin transition-all duration-1000 ease-in-out delay-700 ${
 					inView ? "opacity-100" : "opacity-0"
 				}`}
 			>
@@ -73,9 +74,15 @@ const Work = () => {
 				darkMode ? "bg-maindark" : "bg-mailight"
 			}`}
 		>
-			<div ref={ref} className={`container flex justify-center mt-24 sm:mt-0`}>
+			<div
+				ref={ref}
+				className={`container flex flex-col items-center justify-center mt-24 sm:mt-0`}
+			>
+				<Paragraph darkMode={darkMode} className={`text-2xl sm:text-3xl mb-6`}>
+					<Trans>Work</Trans>
+				</Paragraph>
 				<div
-					className={`grid gap-6 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 md:gap-4 2xl:gap-8 w-full xl:w-4/5 items-center transition-all duration-1000 ease-in-out`}
+					className={`grid gap-6 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 md:gap-4 w-full xl:w-4/5 items-center transition-all duration-1000 ease-in-out`}
 				>
 					{projects.map((project, i) => (
 						<Project
