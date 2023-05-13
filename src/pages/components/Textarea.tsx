@@ -1,17 +1,19 @@
 import { Trans } from "gatsby-plugin-react-i18next";
 import React from "react";
 
-const Textarea = ({ darkMode, placeholder, className }) => {
+const Textarea = ({ darkMode, placeholder, className, name }) => {
 	return (
 		<div className={`relative z-0 ${className}`}>
 			<textarea
 				id={placeholder}
+				name={name}
 				className={`block py-2.5 px-0 w-full text-lg sm:text-xl bg-transparent border-0 border-b-2 appearance-none dark:focus:border-thirddark focus:outline-none focus:ring-0 focus:border-thirddark peer ${
 					darkMode
 						? "dark:text-mainlight dark:border-mainlight"
 						: "dark:text-maindark dark:border-maindark"
 				}`}
 				placeholder=" "
+				required
 			/>
 			<label
 				htmlFor={placeholder}

@@ -1,19 +1,10 @@
-import React, {
-	useContext,
-	useState,
-	useEffect,
-	useCallback,
-	useRef,
-} from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Element, scroller } from "react-scroll";
 import Layout from "./components/layout/Layout";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
-import { useInView } from "react-intersection-observer";
 import { graphql } from "gatsby";
 import { SEO } from "./components/shared/SEO";
 import { AppContext } from "./context/AppContext";
-import Paragraph from "./components/shared/Paragraph";
-import { Trans } from "gatsby-plugin-react-i18next";
 import Helmet from "react-helmet";
 import Presentation from "./components/home/Presentation";
 import PageIcon from "./components/shared/PageIcon";
@@ -50,7 +41,7 @@ const IndexPage = () => {
 				downHandler={() => setActive(active === 4 ? 4 : active + 1)}
 			>
 				<Element name="element1">
-					<Presentation />
+					<Presentation setActive={setActive} />
 				</Element>
 				<Element name="element2">
 					<About />

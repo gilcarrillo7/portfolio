@@ -22,6 +22,7 @@ module.exports = {
 				thirddark: "#FFCC00",
 				mainlight: "#FFFFFF",
 				seclight: "#000000",
+				red: "#FF0000",
 			},
 		},
 	},

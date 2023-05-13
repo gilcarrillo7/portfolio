@@ -4,9 +4,6 @@ import { useInView } from "react-intersection-observer";
 
 import Paragraph from "../shared/Paragraph";
 import { AppContext } from "../../context/AppContext";
-import Button from "../shared/Button";
-import Input from "../shared/Input";
-import Textarea from "../Textarea";
 
 import Trazo from "../../../images/trazo.png";
 import Teen from "../../../images/teen.png";
@@ -78,7 +75,12 @@ const Work = () => {
 				ref={ref}
 				className={`container flex flex-col items-center justify-center mt-24 sm:mt-0`}
 			>
-				<Paragraph darkMode={darkMode} className={`text-2xl sm:text-3xl mb-6`}>
+				<Paragraph
+					darkMode={darkMode}
+					className={`text-2xl sm:text-3xl mb-6 transition-all duration-1000 ease-in-out ${
+						inView ? "" : "translate-y-12"
+					}`}
+				>
 					<Trans>Work</Trans>
 				</Paragraph>
 				<div

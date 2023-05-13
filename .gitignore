@@ -4,3 +4,6 @@ public
 src/images
 
 package-lock.json
+firebase.ts
+.firebaserc
+firebase.json

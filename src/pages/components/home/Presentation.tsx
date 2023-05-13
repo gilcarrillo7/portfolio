@@ -7,7 +7,7 @@ import Paragraph from "../shared/Paragraph";
 import { AppContext } from "../../context/AppContext";
 import Button from "../shared/Button";
 
-const Presentation = () => {
+const Presentation = ({ setActive }) => {
 	const { darkMode } = useContext(AppContext);
 	const { ref, inView } = useInView({ threshold: 0.3 });
 
@@ -57,13 +57,14 @@ const Presentation = () => {
 					className={`mt-8 transition-all duration-1000 delay-1000 ease-in-out ${
 						inView ? "opacity-100" : "scale-0 opacity-0"
 					}`}
-					onClick={() =>
+					onClick={() => {
+						setActive(3);
 						scroller.scrollTo(`element3`, {
 							duration: 200,
 							delay: 20,
 							smooth: true,
-						})
-					}
+						});
+					}}
 				>
 					<Trans>Work</Trans>
 				</Button>

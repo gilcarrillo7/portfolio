@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Trans } from "react-i18next";
 import { useInView } from "react-intersection-observer";
+import { useI18next } from "gatsby-plugin-react-i18next";
 
 import Paragraph from "../shared/Paragraph";
 import { AppContext } from "../../context/AppContext";
@@ -11,6 +12,7 @@ import Img from "../../../images/gilberto.jpg";
 const About = () => {
 	const { darkMode } = useContext(AppContext);
 	const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
+	const { language } = useI18next();
 
 	const skills = [
 		"Javascript",
@@ -104,7 +106,14 @@ const About = () => {
 								className={` transition-all duration-1000 delay-700 ease-in-out ${
 									inView ? "opacity-100" : "scale-0 opacity-0"
 								}`}
-								onClick={() => {}}
+								onClick={() =>
+									window.open(
+										language === "es"
+											? "https://docs.google.com/document/d/1b_2PA8DrZO4G1aPVLcIicpOysDZlTShl/edit?usp=sharing&ouid=106437420196175834131&rtpof=true&sd=true"
+											: "https://docs.google.com/document/d/1he5D6_U9PkBs4FuMMIgFDM0PFtr0z0bn/edit?usp=sharing&ouid=106437420196175834131&rtpof=true&sd=true"
+									)
+								}
+								type={"button"}
 							>
 								<Trans>Resume</Trans>
 							</Button>

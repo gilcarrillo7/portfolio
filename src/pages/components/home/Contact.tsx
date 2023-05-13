@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useRef } from "react";
 import { Trans } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 
@@ -7,13 +7,35 @@ import { AppContext } from "../../context/AppContext";
 import Button from "../shared/Button";
 import Input from "../shared/Input";
 import Textarea from "../Textarea";
+import Loader from "../shared/Loader";
+import sendEmail from "../../util/sendEmail";
 
 const Contact = () => {
+	const formRef = useRef<HTMLFormElement>();
 	const { darkMode } = useContext(AppContext);
 	const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
 	const { ref: refMail, inView: inViewMail } = useInView({
 		threshold: 0.3,
 	});
+
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		setFormState(1);
+		sendEmail(
+			e.currentTarget.elements["name"].value,
+			e.currentTarget.elements["mail"].value,
+			e.currentTarget.elements["message"].value
+		)
+			.then(() => {
+				setFormState(2);
+				formRef.current?.reset();
+			})
+			.catch(() => {
+				setFormState(0);
+			});
+	};
+
+	const [formState, setFormState] = useState(0);
 
 	return (
 		<div
@@ -39,10 +61,15 @@ const Contact = () => {
 					>
 						<Trans>Let's Talk</Trans>
 					</Paragraph>
-					<form className="w-full mt-12">
+					<form
+						ref={formRef}
+						className="w-full mt-12"
+						onSubmit={(e) => handleSubmit(e)}
+					>
 						<div className="flex flex-col sm:flex-row gap-8">
 							<div className="sm:w-1/2">
 								<Input
+									name="name"
 									type="text"
 									className={``}
 									darkMode={darkMode}
@@ -51,7 +78,8 @@ const Contact = () => {
 							</div>
 							<div className="sm:w-1/2">
 								<Input
-									type="mail"
+									name="mail"
+									type="email"
 									className={``}
 									darkMode={darkMode}
 									placeholder="Mail"
@@ -60,20 +88,29 @@ const Contact = () => {
 						</div>
 						<div className="w-full">
 							<Textarea
+								name="message"
 								className={`mt-12`}
 								darkMode={darkMode}
 								placeholder="Message"
 							/>
 						</div>
 						<div className="flex justify-center my-12">
-							<Button
-								darkMode={darkMode}
-								className={``}
-								onClick={undefined}
-								type={"submit"}
-							>
-								Submit
-							</Button>
+							{formState === 0 && (
+								<Button
+									darkMode={darkMode}
+									className={``}
+									onClick={undefined}
+									type={"submit"}
+								>
+									Submit
+								</Button>
+							)}
+							{formState === 1 && <Loader />}
+							{formState === 2 && (
+								<Paragraph darkMode={darkMode} className={`py-4`}>
+									<Trans>Thanks for your message</Trans>
+								</Paragraph>
+							)}
 						</div>
 					</form>
 				</div>

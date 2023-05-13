@@ -1,10 +1,11 @@
 import { Trans } from "gatsby-plugin-react-i18next";
 import React from "react";
 
-const Input = ({ type, darkMode, placeholder, className }) => {
+const Input = ({ name, type, darkMode, placeholder, className }) => {
 	return (
 		<div className={`relative z-0 ${className}`}>
 			<input
+				name={name}
 				type={type}
 				id={placeholder}
 				className={`block py-2.5 px-0 w-full text-lg sm:text-xl border-0 border-b-2 bg-transparent appearance-none dark:focus:border-thirddark focus:outline-none focus:ring-0 focus:border-thirddark peer ${
@@ -13,6 +14,7 @@ const Input = ({ type, darkMode, placeholder, className }) => {
 						: "dark:text-maindark dark:border-maindark"
 				}`}
 				placeholder=" "
+				required
 			/>
 			<label
 				htmlFor={placeholder}

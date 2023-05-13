@@ -12,7 +12,7 @@ interface IContext {
 
 const AppContext = createContext<IContext>({
 	darkMode: true,
-	setDarkMode: () => {},
+	setDarkMode: () => undefined,
 });
 
 const { Provider } = AppContext;
