@@ -19,7 +19,9 @@ const { Provider } = AppContext;
 
 export const AppProvider = ({ children }) => {
 	const mode = localStorage.getItem("mode");
-	const [darkMode, setDarkMode] = useState<boolean>(mode === "true");
+	const [darkMode, setDarkMode] = useState<boolean>(
+		mode ? mode === "true" : true
+	);
 
 	return <Provider value={{ darkMode, setDarkMode }}>{children}</Provider>;
 };
