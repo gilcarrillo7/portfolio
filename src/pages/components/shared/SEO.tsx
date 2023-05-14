@@ -1,5 +1,7 @@
 import React from "react";
 
+import PostImg from "../../../images/post.jpg";
+
 interface IProps {
 	title?: string;
 	description?: string;
@@ -9,15 +11,15 @@ interface IProps {
 
 export const SEO = ({
 	title = "Gil Carrillo | Front End Developer",
-	description = "Helllo my name is Gilberto Carrillo. I am a Front End Developer with experience in Javascript, React, Angular.",
-	image = "",
+	description = "Hello my name is Gilberto Carrillo. I am a Front End Developer with experience in Javascript, React and Angular. Here are some examples of my work.",
+	image = PostImg,
 	url = "",
 }: IProps) => {
 	return (
 		<>
 			<meta name="description" content={description} />
 			<meta name="image" content={image} />
-			<meta property="og:url" content={`https://www.gicarrillo.dev${url}`} />
+			<meta property="og:url" content={`https://www.gilcarrillo.dev${url}`} />
 			<meta property="og:type" content="website" />
 			<meta property="og:title" content={title} />
 			<meta property="og:description" content={description} />

@@ -2,6 +2,7 @@ node_modules/
 .cache/
 public
 src/images
+assets
 
 package-lock.json
 firebase.ts

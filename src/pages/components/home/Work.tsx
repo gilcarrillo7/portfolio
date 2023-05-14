@@ -30,7 +30,11 @@ const Project = ({ img, darkMode, onClick, text }) => {
 					alt={text}
 					className="w-full h-auto rounded-md object-cover ease-in-out duration-500 group-hover:rotate-0 scale-75 group-hover:scale-100"
 				/>
-				<div className="absolute bg-black w-full h-full opacity-30 transition-opacity duration-500 group-hover:opacity-0" />
+				<div
+					className={`absolute bg-maindark w-full h-full transition-opacity duration-500 group-hover:opacity-0 ${
+						darkMode ? "opacity-30" : "opacity-0"
+					}`}
+				/>
 			</div>
 			<Paragraph
 				darkMode={darkMode}
@@ -68,7 +72,7 @@ const Work = () => {
 		<div
 			id="about"
 			className={`w-screen sm:h-screen flex items-center justify-center ${
-				darkMode ? "bg-maindark" : "bg-mailight"
+				darkMode ? "bg-maindark" : "bg-mainlight"
 			}`}
 		>
 			<div

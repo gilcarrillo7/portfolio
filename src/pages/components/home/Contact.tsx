@@ -41,7 +41,7 @@ const Contact = () => {
 		<div
 			id="about"
 			className={`w-screen sm:h-screen relative flex flex-col items-center justify-center ${
-				darkMode ? "bg-maindark" : "bg-mailight"
+				darkMode ? "bg-maindark" : "bg-mainlight"
 			}`}
 		>
 			<div

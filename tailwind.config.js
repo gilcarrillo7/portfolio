@@ -17,11 +17,11 @@ module.exports = {
 		},
 		extend: {
 			colors: {
-				maindark: "#000000",
-				secdark: "#FFFFFF",
-				thirddark: "#FFCC00",
-				mainlight: "#FFFFFF",
-				seclight: "#000000",
+				maindark: "#000011",
+				secdark: "#F1F6F9",
+				thirddark: "#FFC643",
+				mainlight: "#F1F6F9",
+				seclight: "#000011",
 				red: "#FF0000",
 			},
 		},

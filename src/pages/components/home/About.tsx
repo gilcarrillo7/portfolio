@@ -8,6 +8,8 @@ import { AppContext } from "../../context/AppContext";
 import Button from "../shared/Button";
 
 import Img from "../../../images/gilberto.jpg";
+import ResumeEn from "../../../assets/cv_en.pdf";
+import ResumeEs from "../../../assets/cv_es.pdf";
 
 const About = () => {
 	const { darkMode } = useContext(AppContext);
@@ -30,7 +32,7 @@ const About = () => {
 		<div
 			id="about"
 			className={`w-screen sm:h-screen flex items-center justify-center ${
-				darkMode ? "bg-maindark" : "bg-mailight"
+				darkMode ? "bg-maindark" : "bg-mainlight"
 			}`}
 		>
 			<div ref={ref} className={`container flex justify-center`}>
@@ -62,9 +64,9 @@ const About = () => {
 							</Paragraph>
 							<div className={`flex items-center flex-grow ml-6`}>
 								<div
-									className={`${
-										inView ? "w-full" : "w-0"
-									} border-b border-white transition-all duration-1000 delay-100 ease-in-out`}
+									className={`${inView ? "w-full" : "w-0"} ${
+										darkMode ? "border-mainlight" : "border-maindark"
+									} border-b transition-all duration-1000 delay-100 ease-in-out`}
 								></div>
 							</div>
 						</div>
@@ -80,9 +82,9 @@ const About = () => {
 							</Paragraph>
 							<div className={`flex items-center flex-grow ml-6`}>
 								<div
-									className={`${
-										inView ? "w-full" : "w-0"
-									} border-b border-white transition-all duration-1000 delay-300 ease-in-out`}
+									className={`${inView ? "w-full" : "w-0"} ${
+										darkMode ? "border-mainlight" : "border-maindark"
+									} border-b transition-all duration-1000 delay-300 ease-in-out`}
 								></div>
 							</div>
 						</div>
@@ -107,11 +109,7 @@ const About = () => {
 									inView ? "opacity-100" : "scale-0 opacity-0"
 								}`}
 								onClick={() =>
-									window.open(
-										language === "es"
-											? "https://docs.google.com/document/d/1b_2PA8DrZO4G1aPVLcIicpOysDZlTShl/edit?usp=sharing&ouid=106437420196175834131&rtpof=true&sd=true"
-											: "https://docs.google.com/document/d/1he5D6_U9PkBs4FuMMIgFDM0PFtr0z0bn/edit?usp=sharing&ouid=106437420196175834131&rtpof=true&sd=true"
-									)
+									window.open(language === "es" ? ResumeEs : ResumeEn)
 								}
 								type={"button"}
 							>

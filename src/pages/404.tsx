@@ -11,7 +11,7 @@ const NotFoundPage = () => {
 		<Layout>
 			<div
 				className={`w-screen h-screen flex items-center justify-center ${
-					darkMode ? "bg-maindark" : "bg-mailight"
+					darkMode ? "bg-maindark" : "bg-mainlight"
 				}`}
 			>
 				<Paragraph darkMode={darkMode} className={`text-center`}>

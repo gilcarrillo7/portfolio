@@ -15,7 +15,7 @@ const Presentation = ({ setActive }) => {
 		<div
 			id="home"
 			className={`w-screen h-screen flex items-center justify-center ${
-				darkMode ? "bg-maindark" : "bg-mailight"
+				darkMode ? "bg-maindark" : "bg-mainlight"
 			}`}
 		>
 			<div ref={ref} className={`container text-center`}>
