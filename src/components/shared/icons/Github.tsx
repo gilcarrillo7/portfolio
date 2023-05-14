@@ -20,4 +20,4 @@ const Github = ({ darkMode }) => {
 	);
 };
 
-export { Github };
+export default Github;

@@ -18,4 +18,4 @@ const Linkedin = ({ darkMode }) => {
 	);
 };
 
-export { Linkedin };
+export default Linkedin;

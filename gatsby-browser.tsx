@@ -1,4 +1,4 @@
-import { AppProvider } from "./src/pages/context/AppContext";
+import { AppProvider } from "./src/context/AppContext";
 import "./src/styles/global.scss";
 import React from "react";
 

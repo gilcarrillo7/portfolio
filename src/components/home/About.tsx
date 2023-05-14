@@ -4,12 +4,10 @@ import { useInView } from "react-intersection-observer";
 import { useI18next } from "gatsby-plugin-react-i18next";
 
 import Paragraph from "../shared/Paragraph";
-import { AppContext } from "../../context/AppContext";
+import AppContext from "../../context/AppContext";
 import Button from "../shared/Button";
 
-import Img from "../../../images/gilberto.jpg";
-import ResumeEn from "../../../assets/cv_en.pdf";
-import ResumeEs from "../../../assets/cv_es.pdf";
+import Img from "../../images/gilberto.jpg";
 
 const About = () => {
 	const { darkMode } = useContext(AppContext);
@@ -109,7 +107,11 @@ const About = () => {
 									inView ? "opacity-100" : "scale-0 opacity-0"
 								}`}
 								onClick={() =>
-									window.open(language === "es" ? ResumeEs : ResumeEn)
+									window.open(
+										language === "es"
+											? "https://drive.google.com/file/d/1EWgVAHDU-aWz1nvLW3P8hj8jRc4YXon2/view?usp=sharing"
+											: "https://drive.google.com/file/d/1hjqbWVoEPy1aGAO1qkVBB5qLL87IwR3w/view?usp=sharing"
+									)
 								}
 								type={"button"}
 							>

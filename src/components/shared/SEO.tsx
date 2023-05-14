@@ -1,6 +1,6 @@
 import React from "react";
 
-import PostImg from "../../../images/post.jpg";
+import PostImg from "../../images/post.jpg";
 
 interface IProps {
 	title?: string;
@@ -9,7 +9,7 @@ interface IProps {
 	url?: string;
 }
 
-export const SEO = ({
+const SEO = ({
 	title = "Gil Carrillo | Front End Developer",
 	description = "Hello my name is Gilberto Carrillo. I am a Front End Developer with experience in Javascript, React and Angular. Here are some examples of my work.",
 	image = PostImg,
@@ -36,3 +36,5 @@ export const SEO = ({
 		</>
 	);
 };
+
+export default SEO;

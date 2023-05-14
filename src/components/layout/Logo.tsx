@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AppContext } from "../../context/AppContext";
+import AppContext from "../../context/AppContext";
 import { Code } from "../shared/icons";
 import { Link } from "gatsby";
 

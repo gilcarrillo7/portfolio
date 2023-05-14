@@ -17,4 +17,4 @@ const Light = ({ darkMode }) => {
 	);
 };
 
-export { Light };
+export default Light;

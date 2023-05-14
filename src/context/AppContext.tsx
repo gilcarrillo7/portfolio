@@ -17,11 +17,11 @@ const AppContext = createContext<IContext>({
 
 const { Provider } = AppContext;
 
-const AppProvider = ({ children }) => {
+export const AppProvider = ({ children }) => {
 	const mode = localStorage.getItem("mode");
 	const [darkMode, setDarkMode] = useState<boolean>(mode === "true");
 
 	return <Provider value={{ darkMode, setDarkMode }}>{children}</Provider>;
 };
 
-export { AppContext, AppProvider };
+export default AppContext;

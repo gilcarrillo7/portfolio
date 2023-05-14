@@ -1,17 +1,17 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Element, scroller } from "react-scroll";
-import Layout from "./components/layout/Layout";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
-import { graphql } from "gatsby";
-import { SEO } from "./components/shared/SEO";
-import { AppContext } from "./context/AppContext";
 import Helmet from "react-helmet";
-import Presentation from "./components/home/Presentation";
-import PageIcon from "./components/shared/PageIcon";
-import About from "./components/home/About";
-import Contact from "./components/home/Contact";
-import { useWindowSize } from "./hooks/useWindowSize";
-import Work from "./components/home/Work";
+import Layout from "../components/layout/Layout";
+import { graphql } from "gatsby";
+import SEO from "../components/shared/SEO";
+import AppContext from "../context/AppContext";
+import Presentation from "../components/home/Presentation";
+import PageIcon from "../components/shared/PageIcon";
+import About from "../components/home/About";
+import Contact from "../components/home/Contact";
+import useWindowSize from "../hooks/useWindowSize";
+import Work from "../components/home/Work";
 
 const IndexPage = () => {
 	const { width: windowWidth } = useWindowSize();

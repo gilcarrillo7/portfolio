@@ -1,7 +1,7 @@
 import React, { useContext, useState, useRef, useEffect } from "react";
 import { scroller } from "react-scroll";
 import Logo from "./Logo";
-import { AppContext } from "../../context/AppContext";
+import AppContext from "../../context/AppContext";
 import {
 	Trans,
 	useI18next,
@@ -9,7 +9,7 @@ import {
 } from "gatsby-plugin-react-i18next";
 import { Github, Linkedin, Light } from "../shared/icons";
 import Hamburger from "./Hamburger";
-import { useScroll } from "../../hooks/useScroll";
+import useScroll from "../../hooks/useScroll";
 
 const Divisor = ({ darkMode }) => (
 	<div

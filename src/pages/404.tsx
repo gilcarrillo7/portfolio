@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import Layout from "./components/layout/Layout";
-import Paragraph from "./components/shared/Paragraph";
-import { AppContext } from "./context/AppContext";
 import { Link, graphql } from "gatsby";
 import { Trans } from "gatsby-plugin-react-i18next";
+import Layout from "../components/layout/Layout";
+import Paragraph from "../components/shared/Paragraph";
+import AppContext from "../context/AppContext";
 
 const NotFoundPage = () => {
 	const { darkMode } = useContext(AppContext);

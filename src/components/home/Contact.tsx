@@ -3,7 +3,7 @@ import { Trans } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 
 import Paragraph from "../shared/Paragraph";
-import { AppContext } from "../../context/AppContext";
+import AppContext from "../../context/AppContext";
 import Button from "../shared/Button";
 import Input from "../shared/Input";
 import Textarea from "../Textarea";

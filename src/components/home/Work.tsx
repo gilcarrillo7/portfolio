@@ -3,17 +3,17 @@ import { Trans } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 
 import Paragraph from "../shared/Paragraph";
-import { AppContext } from "../../context/AppContext";
+import AppContext from "../../context/AppContext";
 
-import Trazo from "../../../images/trazo.png";
-import Teen from "../../../images/teen.png";
-import Insade from "../../../images/insade.png";
-import Ikaro from "../../../images/ikaro.png";
-import Pacto from "../../../images/pacto.png";
-import Fzm from "../../../images/fzm.png";
-import Thi from "../../../images/thi.png";
-import Yoga from "../../../images/yoga.png";
-import Incuba from "../../../images/incuba.png";
+import Trazo from "../../images/trazo.png";
+import Teen from "../../images/teen.png";
+import Insade from "../../images/insade.png";
+import Ikaro from "../../images/ikaro.png";
+import Pacto from "../../images/pacto.png";
+import Fzm from "../../images/fzm.png";
+import Thi from "../../images/thi.png";
+import Yoga from "../../images/yoga.png";
+import Incuba from "../../images/incuba.png";
 
 const Project = ({ img, darkMode, onClick, text }) => {
 	const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });

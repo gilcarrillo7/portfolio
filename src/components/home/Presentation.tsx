@@ -4,7 +4,7 @@ import { useInView } from "react-intersection-observer";
 import { scroller } from "react-scroll";
 
 import Paragraph from "../shared/Paragraph";
-import { AppContext } from "../../context/AppContext";
+import AppContext from "../../context/AppContext";
 import Button from "../shared/Button";
 
 const Presentation = ({ setActive }) => {

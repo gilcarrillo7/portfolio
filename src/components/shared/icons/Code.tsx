@@ -16,4 +16,4 @@ const Code = ({ darkMode }) => {
 	);
 };
 
-export { Code };
+export default Code;
